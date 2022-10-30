@@ -1,0 +1,72 @@
+{
+  "name": "electron-serialport",
+  "version": "1.0.2",
+  "description": "A minimal Electron application with node serialport",
+  "main": "main.js",
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "start": "npm install && electron .",
+    "install": "electron-rebuild",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:serialport/electron-serialport.git"
+  },
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "build":{
+    "productName":"Bingo",
+    "appId":"org.Bingo",
+    "dmg":{
+        "contents":[
+            {
+                "x":130,
+                "y":220
+            },
+            {
+                "x":410,
+                "y":220,
+                "type":"link",
+                "path":"/Applications"
+            }
+        ]
+    },
+    "win":{
+        "target":[
+            "nsis",
+            "msi"
+        ]
+    },
+    "linux":{
+        "target":[
+            "deb",
+            "rpm",
+            "snap",
+            "AppImage"
+        ],
+        "category":"Development"
+    },
+    "directories":{
+        "buildResources":"resources",
+        "output":"release"
+    }
+  },
+  "devDependencies": {
+    "electron": "^13.1.6",
+    "electron-builder": "^22.11.7",
+    "electron-rebuild": "^2.3.5"
+  },
+  "dependencies": {
+    "firebase": "^8.8.1",
+    "tableify": "^1.1.0"
+  }
+}

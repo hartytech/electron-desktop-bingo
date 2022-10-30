@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>BINGO Options Panel</title>
+    <link rel="stylesheet" href="titlebar.css">
+    <style>
+        html{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        body{
+            margin: 0;
+            flex-direction: column;
+            display: flex;
+        }
+        #body {
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh);;
+            margin-top: 0px;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        #row {
+            display: flex;
+            flex-direction: row;
+            height: 27vh
+        }
+        #row a {
+            border: 0.4vh solid #28293d;
+            background: #1b1c27;
+            border-radius: 10px;
+            height: 25vh;
+            width: 25vh;
+            margin: 0.5vh;
+            transition: border 1s, box-shadow 1s, color 1s;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            text-decoration: none;
+            color: #28293d;
+            font-family: sf-bold;
+        }
+        #row a:hover {
+            border: 0.4vh solid white;
+            box-shadow: 5px 5px 25px #222222;
+            color: white;
+            transition: border 1s, box-shadow 1s, color 1s;
+        }
+        #row a #svgholder {
+            width: 15vh; 
+            height: 15vh; 
+            margin: 1.5vh;
+            border-radius: 10px;
+            border: 1px solid #28293d;
+            transition: border 1s;
+        }
+        #row a:hover #svgholder {
+            border: 1px solid white;
+            transition: border 1s;
+        }
+        #row a #svgholder div {
+            width: 100%; 
+            height: 100%; 
+            background: #28293d;
+            transition: background 1s;
+            border-radius: 10px;
+        }
+        #row a:hover #svgholder div {
+            background: white;
+            transition: background 1s;
+        }
+        #row a h1 {
+            font-size: 3vh;
+        }
+        #box {
+            background: #28293d;
+            box-shadow: 5px 5px 25px rgba(0,0,0,0.2);
+            height: 18vh;
+            width: 133.5vh;
+            margin-bottom: 1vh;
+            display: flex;
+            border-radius: 10px;
+            flex-direction: row;
+            align-items: center;
+            overflow: hidden;
+        }
+        #box h1 {
+            font-family: sf-bold;
+            color: #3568d4;
+        }
+        #footer {
+            height: 3vh;
+            border-top: 1px solid #28293d;
+            width: 100%;
+            color: #3e3f55;
+            position: fixed;
+            display: flex;
+            z-index: 100;
+            bottom: 0px;
+            flex-direction: row;
+            align-self: center;
+            justify-self: center;
+            align-items: center;
+            justify-content: center;
+            font-family: sf;
+            font-size: 1.5vh;
+
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <header id="titlebar">
+        <div id="drag-region">
+    
+    
+          <div id="window-title">
+            <span id="window-title-text">BINGO Options Panel</span>
+          </div>
+    
+          <div id="window-controls">
+      
+            <div class="button" id="min-button">
+              <img class="icon" srcset="icons/min-w-10.png 1x, icons/min-w-12.png 1.25x, icons/min-w-15.png 1.5x, icons/min-w-15.png 1.75x, icons/min-w-20.png 2x, icons/min-w-20.png 2.25x, icons/min-w-24.png 2.5x, icons/min-w-30.png 3x, icons/min-w-30.png 3.5x" draggable="false" />
+            </div>
+      
+            <div class="button" id="max-button">
+              <img class="icon" srcset="icons/max-w-10.png 1x, icons/max-w-12.png 1.25x, icons/max-w-15.png 1.5x, icons/max-w-15.png 1.75x, icons/max-w-20.png 2x, icons/max-w-20.png 2.25x, icons/max-w-24.png 2.5x, icons/max-w-30.png 3x, icons/max-w-30.png 3.5x" draggable="false" />
+            </div>
+      
+            <div class="button" id="restore-button">
+              <img class="icon" srcset="icons/restore-w-10.png 1x, icons/restore-w-12.png 1.25x, icons/restore-w-15.png 1.5x, icons/restore-w-15.png 1.75x, icons/restore-w-20.png 2x, icons/restore-w-20.png 2.25x, icons/restore-w-24.png 2.5x, icons/restore-w-30.png 3x, icons/restore-w-30.png 3.5x" draggable="false" />
+            </div>
+      
+            <div class="button" id="close-button">
+              <img class="icon" srcset="icons/close-w-10.png 1x, icons/close-w-12.png 1.25x, icons/close-w-15.png 1.5x, icons/close-w-15.png 1.75x, icons/close-w-20.png 2x, icons/close-w-20.png 2.25x, icons/close-w-24.png 2.5x, icons/close-w-30.png 3x, icons/close-w-30.png 3.5x" draggable="false" />
+            </div>
+      
+          </div>
+        </div>
+      </header>
+    <div id="body">
+        <div>
+            <div id="box">
+                <img src="assets/qr-code.png" style="height: 100%; width: auto">
+                <div style="flex-direction: column; padding: 30px">
+                    <h1 style="font-size: 2.5vh; color: white;  border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 10px; font-family: sf-light;">SELECT A GAME TO GET STARTED . . . </h1>
+                    <h1 style="font-size: 5.5vh; color: white; font-family: sf;">USE THE QR CODE TO FOLLOW ALONG</h1>
+                </div>
+            </div>
+        </div>
+        <div id="row">
+            <a href="pages/bingo.html">
+                <div id="svgholder" >
+                    <div style=" -webkit-mask: url(assets/bingo.svg) ">
+                        <!-- fallback here -->
+                    </div>
+                </div>
+                <h1>Regular BINGO</h1>
+            </a>
+            <a href="pages/letterx.html">
+                <div id="svgholder" >
+                    <div style=" -webkit-mask: url(assets/x-bingo.svg) ">
+                        <!-- fallback here -->
+                    </div>
+                </div>
+                <h1>Letter-X</h1>
+            </a>
+            <a href="pages/fourcorners.html">
+                <div id="svgholder" >
+                    <div style=" -webkit-mask: url(assets/four-corners-bingo.svg) ">
+                    <!-- fallback here -->
+                    </div>
+                </div>
+                <h1>Four Corners</h1>
+            </a>
+            <a href="pages/lettert.html">
+                <div id="svgholder" >
+                    <div style=" -webkit-mask: url(assets/t-bingo.svg) ">
+                    <!-- fallback here -->
+                    </div>
+                </div>
+                <h1>Letter-T</h1>
+            </a>
+            <a href="pages/2by2stamp.html">
+                <div id="svgholder" >
+                    <div style=" -webkit-mask: url(assets/stamp-bingo.svg) ">
+                    <!-- fallback here -->
+                    </div>
+                </div>
+                <h1>2-By-2 Stamp</h1>
+            </a>
+        </div>
+        <div id="row">
+            <a href="pages/bottomline.html">
+                <div id="svgholder" >
+                    <div style=" -webkit-mask: url(assets/bottom-line-bingo.svg) ">
+                    <!-- fallback here -->
+                    </div>
+                </div>
+                <h1>Bottom Line</h1>
+            </a>
+            <a href="pages/topline.html">
+                <div id="svgholder" >
+                    <div style=" -webkit-mask: url(assets/top-line-bingo.svg) ">
+                    <!-- fallback here -->
+                    </div>
+                </div>
+                <h1>Top Line</h1>
+            </a>
+            <a href="pages/diagonal.html">
+                <div id="svgholder" >
+                    <div style=" -webkit-mask: url(assets/diagonal-bingo.svg) ">
+                    <!-- fallback here -->
+                    </div>
+                </div>
+                <h1>Diagonal</h1>
+            </a>
+            <a href="pages/coverall.html">
+                <div id="svgholder" >
+                    <div style=" -webkit-mask: url(assets/coverall-bingo.svg) ">
+                    <!-- fallback here -->
+                    </div>
+                </div>
+                <h1>Coverall</h1>
+            </a>
+            <a href="pages/custom.html">
+                <div id="svgholder" >
+                    <div style=" -webkit-mask: url(assets/other.svg) ">
+                    <!-- fallback here -->
+                    </div>
+                </div>
+                <h1>Other</h1>
+            </a>
+        </div>
+        
+    </div>
+    <span id="footer">
+        <span style="position: absolute; left: 3%;">By Nick Harty</span>
+        <span style="position: absolute; right: 3%">Copyright © 2021 Rich</span>
+    </span>
+</body>
+
+<script src="./renderer.js"></script>
+
+</html>
